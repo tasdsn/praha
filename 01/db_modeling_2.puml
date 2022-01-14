@@ -1,0 +1,58 @@
+@startuml
+'skinparam nodesep 100 // 水平方向の矢印の長さを調整
+
+object setmenus
+object sushis
+object users
+object orders
+object order_details
+object setmenu_types
+object sushi_types
+
+users : id: int
+users : name: string
+users : tel: string
+
+setmenus : id: int
+setmenus : price: int
+setmenus : name: string
+setmenus : wasabi: boolean
+setmenus : num: int
+setmenus : type: int
+
+sushis : id: int
+sushis : name: string
+sushis : wasabi: boolean
+sushis : shari: int
+sushis : num: int
+sushis : type: int
+
+order_details : id: int
+order_details : setmenu_id: int
+order_details : sushi_id: int
+order_details : num: int
+order_details : order_id: int
+order_details : sales_date: date
+
+orders : id: int
+orders : user_id: int
+orders : total_money: int
+orders : total_num: int
+orders : memo: string
+
+sushi_types : id: int
+sushi_types : price: int
+
+setmenu_types : id: int
+setmenu_types : name: int
+
+users    --|{ orders
+orders   --|{ order_details
+setmenus --|{ order_details
+sushis   --|{ order_details
+setmenu_types --|{ setmenus
+sushi_types --|{ sushis
+
+'sushisテーブルにshariカラム追加
+'order_detailsテーブルにsales_dateカラム追加
+@enduml
