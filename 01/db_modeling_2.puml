@@ -34,6 +34,7 @@ orders : memo: string
 orders : setmenu_id: int
 orders : sushi_id: int
 orders : num: int
+orders : sales_date: date
 
 sushi_types : id: int
 sushi_types : price: int
@@ -48,5 +49,5 @@ setmenu_types -- setmenus
 sushi_types -- sushis
 
 'sushisテーブルにshariカラム追加
-'order_detailsテーブルにsales_dateカラム追加
+'ordersテーブルにsales_dateカラム追加
 @enduml
