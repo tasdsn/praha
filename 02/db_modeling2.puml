@@ -40,7 +40,7 @@ entity thread_messages {
 }
 
 users          --|{ user_channels
-user_channels  --|{ channels
+channels       --|{ user_channels
 channels       --|{ messages
 messages       --|{ thread_messages
 users          --|{ messages

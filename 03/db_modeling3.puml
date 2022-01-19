@@ -1,0 +1,57 @@
+@startuml
+'03_DBモデリング3
+
+entity users {
+  + id [PK]
+  --
+  name
+  is_delete
+}
+
+entity user_directory {
+  + id [PK]
+  --
+  user_id
+  directory_id
+  is_delete
+}
+
+entity directory {
+  + id [PK]
+  --
+  name
+  sub_directory_id
+  is_delete
+}
+
+entity document {
+  + id [PK]
+  --
+  name
+  content
+  directory_id
+  user_id
+  is_delete
+}
+
+entity document_history {
+  + id [PK]
+  --
+  name
+  content
+  document_id
+  directory_id
+  user_id
+  is_delete
+}
+
+users      --|{ user_directory
+directory  --|{ directory
+directory  --|{ user_directory
+users  --|{ document
+directory  --|{ document
+users  --|{ document_history
+directory  --|{ document_history
+document   --|{ document_history
+
+@enduml
