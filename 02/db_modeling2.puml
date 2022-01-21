@@ -35,6 +35,7 @@ entity thread_messages {
   + id [PK]
   --
   message_id
+  user_id
   content
   created_at
 }
@@ -44,6 +45,7 @@ channels       --|{ user_channels
 channels       --|{ messages
 messages       --|{ thread_messages
 users          --|{ messages
+users          --|{ thread_messages
 
 ' 横断機能はユーザーの所属しているチャネルを取得してそのメッセージを取得し、
 ' それに紐付くスレッドを取得すれば検索できるはず
