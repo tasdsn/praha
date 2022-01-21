@@ -60,4 +60,7 @@ directory  --|{ document_history
 directory  --|{ directory_relation
 document   --|{ document_history
 
+'参考
+' https://qiita.com/fktnkit/items/57033c10b41b5747dbea#%E4%BB%A3%E6%9B%BF%E3%83%84%E3%83%AA%E3%83%BC%E3%83%A2%E3%83%87%E3%83%AB
+
 @enduml
