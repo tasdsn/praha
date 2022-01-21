@@ -20,8 +20,14 @@ entity directory {
   + id [PK]
   --
   name
-  sub_directory_id
   is_delete
+}
+
+entity directory_relation {
+  + id [PK]
+  --
+  ancestor
+  descendant
 }
 
 entity document {
@@ -46,12 +52,12 @@ entity document_history {
 }
 
 users      --|{ user_directory
-directory  --|{ directory
 directory  --|{ user_directory
 users  --|{ document
 directory  --|{ document
 users  --|{ document_history
 directory  --|{ document_history
+directory  --|{ directory_relation
 document   --|{ document_history
 
 @enduml
