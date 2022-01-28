@@ -1,5 +1,6 @@
 @startuml
 '03_DBモデリング3
+' 閉包テーブル
 
 entity users {
   + id [PK]
@@ -51,14 +52,14 @@ entity document_history {
   is_delete
 }
 
-users      --|{ user_directory
-directory  --|{ user_directory
-users  --|{ document
-directory  --|{ document
-users  --|{ document_history
-directory  --|{ document_history
-directory  --|{ directory_relation
-document   --|{ document_history
+users      ||--o{ user_directory
+directory  ||--o{ user_directory
+users  ||--o{ document
+directory  ||--o{ document
+users  ||--o{ document_history
+directory  ||--o{ document_history
+directory  ||--o{ directory_relation
+document   ||--o{ document_history
 
 '参考
 ' https://qiita.com/fktnkit/items/57033c10b41b5747dbea#%E4%BB%A3%E6%9B%BF%E3%83%84%E3%83%AA%E3%83%BC%E3%83%A2%E3%83%87%E3%83%AB
