@@ -1,0 +1,51 @@
+@startuml
+'04_DBモデリング4
+' 入れ子構造
+
+entity users {
+  + id [PK]
+  --
+  name
+  is_delete
+}
+
+entity reminder {
+  + id [PK]
+  --
+  send_user_id
+  content
+  frequency_id
+  created_at
+  is_delete
+}
+
+entity frequency {
+  + id [PK]
+  --
+  name
+  seconds
+  minutes
+  hours
+  days
+  months
+  day_of_weeks
+}
+
+entity user_reminder {
+  + id [PK]
+  --
+  user_id
+  reminder_id
+  is_delete
+}
+
+users          ||--o{ user_reminder
+users          ||--o{ reminder
+reminder       ||--o{ user_reminder
+frequency      ||--|| reminder
+
+' 周期 (frequency)
+' cronの設定パターンを参考
+' https://knowledge.bizrobo.com/hc/ja/articles/360034654472-Cron-%E3%82%AF%E3%83%BC%E3%83%AD%E3%83%B3-%E5%BD%A2%E5%BC%8F%E3%81%AE%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB
+
+@enduml
