@@ -1,0 +1,32 @@
+@startuml
+entity mangas {
+  + id [PK]
+  --
+  name
+}
+
+entity novels {
+  + id [PK]
+  --
+  name
+}
+
+entity book_comments {
+  + id [PK]
+  --
+  comment_id
+  belongs_to_id
+  type
+}
+
+entity comments {
+  + id [PK]
+  --
+  name
+}
+
+mangas          ||--o{ book_comments
+novels          ||--o{ book_comments
+comments        ||--o{ book_comments
+
+@enduml
