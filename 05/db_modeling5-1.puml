@@ -1,0 +1,36 @@
+@startuml
+'05_DBモデリング5
+
+entity users {
+  + id [PK]
+  --
+  name
+  is_delete
+}
+
+entity articles {
+  + id [PK]
+  --
+  content
+  user_id
+  created_at
+  updated_at
+  is_delete
+}
+
+entity article_histories {
+  + id [PK]
+  --
+  content
+  user_id
+  article_id
+  created_at
+  updated_at
+  is_delete
+}
+
+users          ||--o{ articles
+users          ||--o{ article_histories
+articles       ||--o{ article_histories
+
+@enduml
