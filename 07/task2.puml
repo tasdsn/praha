@@ -1,0 +1,25 @@
+@startuml
+
+entity posts {
+  + id [PK]
+  --
+  text
+}
+
+entity tags {
+  + id [PK]
+  --
+  name
+}
+
+entity post_tags {
+  + id [PK]
+  --
+  tag_id
+  post_id
+}
+
+posts     ||--o{ post_tags
+tags     ||--o{ post_tags
+
+@enduml
