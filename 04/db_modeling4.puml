@@ -1,6 +1,5 @@
 @startuml
 '04_DBモデリング4
-' 入れ子構造
 
 entity users {
   + id [PK]
