@@ -1,0 +1,31 @@
+@startuml
+'10_アンチパターン5
+
+entity customers {
+  + id [PK]
+  --
+  name
+  is_delete
+}
+
+entity mets {
+  + id [PK]
+  --
+  called
+  callNote
+  metOnce
+  metAt
+  metSEQ '面談回数'
+  closed
+  closedAt
+  cancel
+  cancelAt
+  user_id[FK]
+  created_at
+  updated_at
+  is_delete
+}
+
+customers          ||--o{ mets
+
+@enduml
