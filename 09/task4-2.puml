@@ -12,6 +12,7 @@ entity tree_messages {
   --
   parent_message_id[FK]
   child_message_id[FK]
+  path_length
 }
 
 messages ----|{ tree_messages
