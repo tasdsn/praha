@@ -8,24 +8,49 @@ entity customers {
   is_delete
 }
 
+entity contracts {
+  + id [PK]
+  --
+  contract_name
+  customer_id[FK]
+}
+
+entity calls {
+  + id [PK]
+  --
+  callAt
+  callNote
+  call_count
+  contract_id[FK]
+}
+
 entity mets {
   + id [PK]
   --
-  called
-  callNote
-  metOnce
   metAt
-  metSEQ '面談回数'
-  closed
-  closedAt
-  cancel
-  cancelAt
-  user_id[FK]
-  created_at
-  updated_at
-  is_delete
+  met_count
+  contract_id[FK]
 }
 
-customers          ||--o{ mets
+entity closes {
+  + id [PK]
+  --
+  closedAt
+  contract_id[FK]
+}
+
+entity cancels {
+  + id [PK]
+  --
+  cancelAt
+  contract_id[FK]
+}
+
+customers          ||--o{ contracts
+contracts          ||--o{ calls
+contracts          ||--o{ mets
+contracts          ||--o{ closes
+contracts          ||--o{ cancels
+
 
 @enduml
