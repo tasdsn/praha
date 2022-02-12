@@ -1,0 +1,19 @@
+@startuml
+'11_ アンチパターン6
+
+entity students {
+  + id [PK]
+  --
+  name
+  status_id[FK]
+}
+
+entity status {
+  + id [PK]
+  --
+  name
+}
+
+students    ||--o{ status
+
+@enduml
