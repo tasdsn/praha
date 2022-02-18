@@ -1,0 +1,26 @@
+@startuml
+'12_ アンチパターン7
+
+' 履歴にする
+entity TABLE {
+  + id [PK]
+  --
+  name
+}
+
+entity TABLE_HISTORY {
+  + id [PK]
+  --
+  name
+}
+
+TABLE    -- TABLE_HISTORY
+
+entity TABLE_VERSION {
+  + id [PK]
+  --
+  name
+  version
+}
+
+@enduml
