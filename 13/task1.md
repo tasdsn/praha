@@ -1,0 +1,2 @@
+- https://blog.makotoishida.com/2010/12/blog-post_26.html
+- 商品コードを変えたくなった時に影響範囲が大きくなってしまう
