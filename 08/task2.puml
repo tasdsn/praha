@@ -1,0 +1,25 @@
+@startuml
+entity types {
+  + id [PK]
+  --
+  name
+}
+
+entity books {
+  + id [PK]
+  --
+  name
+  type_id
+}
+
+entity comments {
+  + id [PK]
+  --
+  name
+  book_id
+}
+
+types          ||--o{ books
+books      ||--o{ comments
+
+@enduml
