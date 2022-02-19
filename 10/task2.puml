@@ -1,0 +1,56 @@
+@startuml
+'10_アンチパターン5
+
+entity customers {
+  + id [PK]
+  --
+  name
+  is_delete
+}
+
+entity contracts {
+  + id [PK]
+  --
+  contract_name
+  customer_id[FK]
+}
+
+entity calls {
+  + id [PK]
+  --
+  callAt
+  callNote
+  call_count
+  contract_id[FK]
+}
+
+entity mets {
+  + id [PK]
+  --
+  metAt
+  met_count
+  contract_id[FK]
+}
+
+entity closes {
+  + id [PK]
+  --
+  closedAt
+  contract_id[FK]
+}
+
+entity cancels {
+  + id [PK]
+  --
+  cancelAt
+  contract_id[FK]
+}
+
+customers          ||--o{ contracts
+contracts          ||--o{ calls
+contracts          ||--o{ mets
+contracts          ||--o{ closes
+contracts          ||--o{ cancels
+
+
+@enduml
