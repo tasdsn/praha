@@ -1,0 +1,20 @@
+@startuml
+'12_ アンチパターン7
+
+' 状態を保持する
+entity TABLE {
+  + id [PK]
+  --
+  name
+  status_id[FK]
+}
+
+entity status {
+  + id [PK]
+  --
+  name
+}
+
+status    ||--o{ TABLE
+
+@enduml
