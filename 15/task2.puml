@@ -1,0 +1,25 @@
+@startuml
+
+entity Assignee {
+  + id [PK]
+  --
+  name
+}
+
+entity Issue {
+  + id [PK]
+  --
+  text
+'  assigned_to_id[FK] 削除
+}
+
+entity AssigneeToIssue {
+  + id [PK]
+  --
+  assigned_id[FK]
+  issue_id[FK]
+}
+Assignee    ||--o{ AssigneeToIssue
+Issue    ||--o{ AssigneeToIssue
+
+@enduml
